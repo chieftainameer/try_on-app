@@ -1,5 +1,11 @@
 {
-  "name": "try_on",
+  "name": "hello",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "1.0.0",
+  "description": "greetings",
+  "main": "rails",
+  "repository": "yes",
+  "author": "yes",
+  "license": "yes"
 }
