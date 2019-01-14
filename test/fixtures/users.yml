@@ -1,0 +1,5 @@
+# empty
+ameer:
+  name: Ameer hamza
+  email: chieftainameer@gmail.com
+  password_digest: <%= User.digest('password') %>
