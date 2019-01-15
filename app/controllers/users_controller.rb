@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   	if @user.save
   		log_in @user
   		flash[:success] = "Thanks for signing up"
-		redirect_to login_path 
+		redirect_to @user 
 		else
 			flash[:danger] = "Sorry something went wrong"
 		render 'new'		

@@ -71,4 +71,8 @@ test "password should be atleast 6 characters long" do
 	assert_not @user.valid?
 end
 
+test "preventing to logout a user with nil remember digest" do
+	assert_not @user.authenticated?('')
+end
+
 end
