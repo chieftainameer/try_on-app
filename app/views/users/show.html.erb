@@ -22,11 +22,8 @@
 </h3>
 
 <h5>
-	<%= @user.created_at %>
+	Joined <%= time_ago_in_words @user.created_at %> ago
 </h5>
 
-<h5>
-	<%= @user.updated_at %>
-</h5>
 
 <h6>Time is <%= Time.now() %></h6>

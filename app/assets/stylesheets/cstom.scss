@@ -84,7 +84,7 @@ p {
 	float:left;
 	width:100%;
 	margin-top:45px;
-	@iclude box-sizing;
+	@include box-sizing;
 }
 
 aside {
@@ -112,6 +112,7 @@ aside {
 		font-size:1.4em;
 	}
 }
+
 }
 
 .gravatar{
@@ -158,4 +159,12 @@ input {
 	width:auto;
 	margin-left:0;
 }
-
+.users{
+	list-style:none;
+	margin:0;
+	li{
+		overflow:auto;
+		padding:15px 0;
+		border-bottom:1px solid grey;
+	}
+}

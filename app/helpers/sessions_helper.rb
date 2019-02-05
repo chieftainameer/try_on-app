@@ -25,6 +25,10 @@ def current_user
 
 end
 
+def current_user?(user)
+	user == current_user()
+end
+
 def logged_in?
 	!current_user.nil?
 end
@@ -40,4 +44,12 @@ def log_out
 	@current_user = nil
 end
 
+def store_requested_url
+	session[:forwarding_url] = request.original_url if request.get?
+end
+
+def forwarding_to_stored_url default
+	redirect_to(session[:forwarding_url] || default)
+	session.delete(:forwarding_url)
+end
 end
