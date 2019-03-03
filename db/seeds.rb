@@ -6,10 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+=begin
 500.times do |n|
 name = Faker::Name.name
 email = "email100-#{n}@gmail.com"
 password = "password"
-User.create!(name:name, email:email, password:password, password_confirmation:password)
+
+User.create!(name:name, email:email, password:password, password_confirmation:password, activated:true, activated_at:Time.zone.now)
+end
+=end
+
+users = User.order(:created_at).take(5)
+50.times do
+	content = Faker::Lorem.sentence(5)
+	users.each{|user| user.micro_posts.create!(content: content)  }
 end

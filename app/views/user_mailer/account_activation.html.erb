@@ -1,0 +1,12 @@
+<h1>E Doctor Online</h1>
+
+<h5>Hi <%= @user.name %></h5>
+
+<p>
+	Welcome to E doctor health care
+</p>
+<p>
+	Click the link below to proceed further
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email:@user.email) %>

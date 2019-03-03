@@ -1,0 +1,6 @@
+Hi <%= @user.name %>
+
+Welcome to E Doctor health care where we are here to care!
+Click the link given below to activate your account.Thank you
+
+<%= edit_account_activation_url(@user.activation_token, email:@user.email) %>

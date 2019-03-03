@@ -7,23 +7,35 @@
 
 <div class="row">
 	<aside class="col-md-4">
-		<section class="user_info">
+		
+        <section class="user_info">
           <h1>
-          	<%= gravatar_for(@user) %> 
-          	<%= @user.name %>
+            <%= gravatar_for(@user) %> 
+            <%= @user.name %>
           </h1>
         </section>
+        <br/>
+       <h4> <%=  @user.email %></h4>
+        <%= @user.created_at %>
+        <br/>
+        <%= render 'shared/micropost_form' %>
     </aside>
+
+<div class="col-md-8">
+
+          <% if @user.micro_posts.any? %>
+
+          <h2>Microposts <%= @user.micro_posts.count %></h2>
+          <ol class="microposts" >
+             <%= render @microposts %>
+          </ol>
+          <%= will_paginate(@microposts) %>
+
+          <%  end %>
+</div>
 
 </div>
    
-<h3>
-	<%= @user.email %>
-</h3>
-
-<h5>
-	Joined <%= time_ago_in_words @user.created_at %> ago
-</h5>
 
 
-<h6>Time is <%= Time.now() %></h6>
+

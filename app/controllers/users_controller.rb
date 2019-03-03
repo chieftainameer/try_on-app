@@ -6,10 +6,14 @@ before_action :admin_user, only: :destroy
 
 	def show
 		@user=User.find(params[:id])
+		@micropost = current_user.micro_posts.build 
+		@microposts = @user.micro_posts.paginate(page: params[:page], per_page: 5)
+		
 	end
 
 	def index
-		@users = User.paginate(page: params[:page])
+		@users = User.where(activated: true).paginate(page: params[:page], :per_page=>15 )
+
 	end
 
   def new
@@ -18,9 +22,12 @@ before_action :admin_user, only: :destroy
 
   def create
   	@user = User.new(params_req)
+
+
   	if @user.save
+  		#UserMailer.account_activation(@user).deliver_now
+  		#flash[:info] = "Check your email to activate your account to proceed further"
   		log_in @user
-  		flash[:success] = "Thanks for signing up"
 		redirect_to @user 
 		else
 			flash[:danger] = "Sorry something went wrong"
@@ -61,13 +68,8 @@ private
 	params.require(:user).permit(:name, :email, :password, :password_confirmation)
 end
 
-def logged_in_user
-	unless logged_in?
-	store_requested_url
-	flash[:danger] = "Please login to access this page"
-	redirect_to login_url
-end
-end
+
+
 
 def correct_user
 	@user = User.find(params[:id])

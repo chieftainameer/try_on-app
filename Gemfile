@@ -23,6 +23,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'carrierwave'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -32,7 +33,9 @@ gem 'jquery-rails', '~> 4.3'
 gem 'rails-ujs', '~> 0.1.0'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
+gem 'image_magick'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -69,6 +72,7 @@ group :test do
 end
 group :production do
 	gem 'pg'
+  #gem 'fog'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

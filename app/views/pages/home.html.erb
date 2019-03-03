@@ -1,11 +1,18 @@
 <% provide(:title, "Home") %>
+<div class="row">
+	<% if logged_in? %>
+	<aside class="col-md-4" >
 
-<div class=" center jumbotron">
-<h1>This is home page</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to 'Sign up', signup_path, class: "btn btn-lg btn-primary" %>
-
+  		<%= render 'shared/for_logged_in' %>
+  
+</aside>
+<aside class="col-md-8 " >
+	<h3>Microposts feed</h3>
+	<%= render 'shared/feeds' %>
+</aside>
+<% else %>
+	
+	   <%= render 'shared/for_not_logged_in' %>
+	
+<% end %>
 </div>
-
-
-<%= link_to(image_tag("rails.png", alt: "rails logo"), "https://railstutorial.org") %>	
