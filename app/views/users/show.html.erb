@@ -15,14 +15,13 @@
           </h1>
         </section>
         <br/>
-       <h4> <%=  @user.email %></h4>
-        <%= @user.created_at %>
+       <%= render 'shared/stats' %>
         <br/>
         <%= render 'shared/micropost_form' %>
     </aside>
 
 <div class="col-md-8">
-
+          <%= render 'follow_form' if logged_in? %>
           <% if @user.micro_posts.any? %>
 
           <h2>Microposts <%= @user.micro_posts.count %></h2>
