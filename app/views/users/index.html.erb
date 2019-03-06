@@ -5,10 +5,10 @@
 <ul class="users">
 	<% @users.each do |user| %>
 		<li>
-			<!-- <% if user.activated? %> -->
+			<
 			<%= gravatar_for user,size:80 %>
 		    <%= link_to user.name, user %>
-		    <!-- <% end %> -->
+		    
 		    <% if current_user.admin? && !current_user?(user) && user.activated? %>
 				| <%= link_to 'Delete', user, method: :delete, data: { confirm:"Are you sure?" } %>
 				
