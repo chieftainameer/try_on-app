@@ -12,8 +12,8 @@ before_action :admin_user, only: :destroy
 	end
 
 	def index
-		@users = User.where(activated: true).paginate(page: params[:page], :per_page=>15 )
-
+		#@users = User.where(activated: true).paginate(page: params[:page], :per_page=>15 )
+		@users = User.paginate(page: params[:page], :per_page=>15 )
 	end
 
   def new
